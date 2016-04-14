@@ -23,7 +23,6 @@ $(function(){
                 for(var p in data[i]){
                     var cellData = data[i][p];
                     if( p=='zip_dir' || p=='kpoint_dir'){
-                      console.log(cellData);
                         if(cellData != null){
                             tr.append('<td><a href="javascript:void(0);"><img src="/images/download.png" alt="" /></a></td>');
                         }else{
