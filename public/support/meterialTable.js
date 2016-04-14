@@ -1,19 +1,8 @@
 $(function(){
-   window.onload = $.ajax({
-      type: "get",
-      url: "query/queryTable",
-      success: function(result){
-          showtable(result.data);
-      },
-      error:function(info){
-          alert("请求失败");
-      }
-   });
-   
-   
-   function showtable(result){
-       $("#meterialTable").dataTable({
-             data:result,
+
+     $('#meterialTable').dataTable( {
+         "bServerSide": true,
+         "sAjaxSource": "query/queryTable",
              columns:[
                  {title:"Materials Id",data:"Materials_Id"},
                  {title:"Formula",data:"Formula"},
@@ -42,6 +31,9 @@ $(function(){
                         "sLast": "末页"
                         }
                 },
+                "bDeferRender" : true,  
+                "bProcessing" : true, 
+                //下拉列表中的选项(每页显示的行数)
                 "aLengthMenu": [
                     [5, 10, 20, 100, 1000, -1],
                     [5, 10, 20, 100, 1000, "All"] // change per page values here
@@ -66,6 +58,5 @@ $(function(){
                         } );
                     } );
                 }
-          });
-   }
+     } );
 });
