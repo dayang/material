@@ -1,8 +1,18 @@
 $(function(){
-
-     $('#meterialTable').dataTable( {
-         "bServerSide": true,
-         "sAjaxSource": "query/queryTable",
+   window.onload = $.ajax({
+      type: "get",
+      url: "query/queryTable",
+      success: function(result){
+          showtable(result.data);
+      },
+      error:function(info){
+          alert("请求失败");
+      }
+   });
+   
+   function showtable(result){
+       $("#meterialTable").dataTable({
+             data:result,
              columns:[
                  {title:"Materials Id",data:"Materials_Id"},
                  {title:"Formula",data:"Formula"},
@@ -16,6 +26,7 @@ $(function(){
                  {title:"Zip",data:"zip_dir"},
                  {title:"kpoint",data:"kpoint_dir"}
              ],
+             
                 "oLanguage": {
                     "sProcessing": "正在加载中......",
                     "sLengthMenu": "每页显示 _MENU_ 条记录",
@@ -31,12 +42,12 @@ $(function(){
                         "sLast": "末页"
                         }
                 },
-                "bDeferRender" : true,  
-                "bProcessing" : true, 
+                "bDeferRender" : true, 
+                "bProcessing": true, 
                 //下拉列表中的选项(每页显示的行数)
                 "aLengthMenu": [
-                    [5, 10, 20, 100, 1000, -1],
-                    [5, 10, 20, 100, 1000, "All"] // change per page values here
+                    [10, 20,50, 100, 1000, -1],
+                    [10, 20,50, 100, 1000, "All"] // change per page values here
                 ],
                 initComplete: function () {
                     this.api().columns(2).every( function () {
@@ -54,9 +65,10 @@ $(function(){
                             } );
         
                         column.data().unique().sort().each( function ( d, j ) {
-                            select.append( '<option value="'+d+'">'+d+'</option>' )
+                            select.append( '<option value="'+d+'">'+d+'</option>' );
                         } );
                     } );
                 }
-     } );
+          });
+   }
 });
