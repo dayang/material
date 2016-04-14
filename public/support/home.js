@@ -21,8 +21,18 @@ $(function(){
             for(var i = 0; i < data.length; i++){
                 var tr = $('<tr></tr>');
                 for(var p in data[i]){
-                    console.log(p)
-                    tr.append('<td>'+data[i][p] + '</td>');
+                    var cellData = data[i][p];
+                    if( p=='zip_dir' || p=='kpoint_dir'){
+                      console.log(cellData);
+                        if(cellData != null){
+                            tr.append('<td><a href="javascript:void(0);"><img src="/images/download.png" alt="" /></a></td>');
+                        }else{
+                            tr.append('<td></td>');
+                        }
+                      
+                    }else{
+                       tr.append('<td>'+cellData+'</td>');
+                    }
                 }
                 table.append(tr);
             }
