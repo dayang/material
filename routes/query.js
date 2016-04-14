@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var connection = require('../db');
+var mysql = require('mysql');
+var config = require('../myconfig');
 
 router.post('/',function(req, res, next){
 	req.session.elements = req.body.elementArray;console.log(req.session.elements)
@@ -14,6 +15,7 @@ router.get('/queryTable', function(req, res, next){
 		elements = req.session.elements.trim().split(' ');
 	}
 	if(elements.length > 0){
+		var connection = mysql.createConnection(config.db);
 		connection.connect(function(err){
 			if(err){
 				console.error('error connecting: ' + err.stack);
