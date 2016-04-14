@@ -6,6 +6,10 @@ router.get('/', function(req, res, next) {
 
   res.render('index');
 });
+router.get('/meterialTable',function (req,res,next) {
+    console.log("sss");
+    res.render('meterialTable');
+});
 
 router.get('/zip/:file',function(req, res, next){
 	res.download('zip/'+req.params.file);

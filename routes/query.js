@@ -4,7 +4,7 @@ var mysql = require('mysql');
 var config = require('../myconfig');
 
 router.post('/',function(req, res, next){
-	req.session.elements = req.body.elementArray;console.log(req.session.elements)
+	req.session.elements = req.body.elementArray;console.log(req.session.elements);
 	res.render('materialTable');
 });
 
@@ -15,7 +15,9 @@ router.get('/queryTable', function(req, res, next){
 		elements = req.session.elements.trim().split(' ');
 	}
 	if(elements.length > 0){
+
 		var connection = mysql.createConnection(config.db);
+
 		connection.connect(function(err){
 			if(err){
 				console.error('error connecting: ' + err.stack);
@@ -36,10 +38,18 @@ router.get('/queryTable', function(req, res, next){
 				if(err){
 					return console.log(err);
 				}
+                for(var i = 0;i < rows.length; i++){
+                    if(rows[i].zip_dir!==null){
+                        rows[i].zip_dir = '<a href="'+ rows[i].zip_dir + '">下载</a>';
+                    }
+                    if(rows[i].kpoint_dir!==null){
+                        rows[i].kpoint_dir = '<a href="'+ rows[i].kpoint_dir + '">下载</a>';
+                    }
+                }
 				res.json({data : rows, num : rows.length});
 			});
 		});
 	}
-})
+});
 
 module.exports = router;
