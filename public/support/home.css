@@ -224,14 +224,7 @@ overflow: auto;
 overflow: yes;
 height: 80%;
 }
-.showtable,.showtable th,.showtable td{
-  border: 1px solid white;
-  border-collapse: collapse;
-}
-.showtable td,th{
-  text-align: center;
-  padding: 5px 10px;
-}
+
 ::-webkit-scrollbar{width:8px;}
 ::-webkit-scrollbar-track{background-color:#bee1eb;}
 ::-webkit-scrollbar-thumb{background-color:#00aff0;}
