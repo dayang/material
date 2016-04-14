@@ -18,16 +18,22 @@
     <div class="panel-heading">
     <div class="panel-title">已选择元素</div>
     </div>
+    
+    
     <div class="panel-body">
         <div id="selectedelement">
 
         </div>
         <p />
-        <div id="submitselected">
-            <button class="btn btn-info" id="submitbtn" >确定</button>
-            &emsp;
-            <button class="btn btn-info" id="clear">清空</button>
-        </div>
+        <form action="/query" method="POST">
+            <div id="submitselected">
+                <input type="text" name="elementArray" hidden="hidden" id="elementId">
+                <button class="btn btn-info" type="submit" id="submitbtn" >确定</button>
+                &emsp;
+                <button class="btn btn-info" type="reset" id="clear">清空</button>
+            </div>    
+        </form>
+        
     </div>
 </div>
 <div id="container"></div>

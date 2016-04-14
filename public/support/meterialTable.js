@@ -1,10 +1,9 @@
 $(function(){
    window.onload = $.ajax({
-      type: "post",
-      url: "/query",
-      data: 'Cu Li',
+      type: "get",
+      url: "query/queryTable",
       success: function(result){
-          showtable();
+          showtable(result.data);
       },
       error:function(info){
           alert("请求失败");
@@ -12,21 +11,21 @@ $(function(){
    });
    
    
-   function showtable(){
-       $("meterialTable").dataTable({
+   function showtable(result){
+       $("#meterialTable").dataTable({
              data:result,
              columns:[
                  {title:"Materials Id",data:"Materials_Id"},
                  {title:"Formula",data:"Formula"},
-                 {title:"Spacegroup",data:"Spacegroup"},
+                 {title:"",data:"Spacegroup"},
                  {title:"Formation Energy",data:"Formation_Energy"},
                  {title:"E Above Hull",data:"E_Above_Hull"},
-                 {title:"Band Gap",data:"Band Gap"},
+                 {title:"Band Gap",data:"Band_Gap"},
                  {title:"Nsites",data:"Nsites"},
                  {title:"Density",data:"Density"},
                  {title:"Volume",data:"Volume"},
-                 {title:"Zip",data:"Zip"},
-                 {title:"kpoint",data:"kpoint"}
+                 {title:"Zip",data:"zip_dir"},
+                 {title:"kpoint",data:"kpoint_dir"}
              ],
                 "bFilter": true, //开关，是否启用客户端过滤器
                 "oLanguage": {
@@ -44,11 +43,15 @@ $(function(){
                         "sLast": "末页"
                         }
                 },
+                "aLengthMenu": [
+                    [5, 10, 20, 100, 1000, -1],
+                    [5, 10, 20, 100, 1000, "All"] // change per page values here
+                ],
                 initComplete: function () {
-                    this.api().columns(0).every( function () {
+                    this.api().columns(2).every( function () {
                         var column = this;
-                        var select = $('<select ><option value=""></option></select>')
-                            .appendTo( $("#filterinfo") )
+                        var select = $('<select ><option value="">Spacegroup</option></select>')
+                            .appendTo( $(column.header()))
                             .on( 'change', function () {
                                 var val = $.fn.dataTable.util.escapeRegex(
                                     $(this).val()
