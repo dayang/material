@@ -27,7 +27,6 @@ $(function(){
                  {title:"Zip",data:"zip_dir"},
                  {title:"kpoint",data:"kpoint_dir"}
              ],
-                "bFilter": true, //开关，是否启用客户端过滤器
                 "oLanguage": {
                     "sProcessing": "正在加载中......",
                     "sLengthMenu": "每页显示 _MENU_ 条记录",
