@@ -4,8 +4,8 @@ var mysql = require('mysql');
 var config = require('../myconfig');
 
 router.post('/',function(req, res, next){
-	req.session.elements = req.body.elementArray;console.log(req.session.elements);
-	res.render('materialTable');
+	req.session.elements = req.body.elementArray;
+	res.render('materialTable',{ caption : req.session.elements});
 });
 
 router.get('/queryTable', function(req, res, next){
