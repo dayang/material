@@ -1,4 +1,5 @@
 $(function(){
+    clearinfo();
     $(".element").click(function(e){
       var symbol = $(this).children(".symbol").text();
       makediv(symbol);
@@ -6,9 +7,13 @@ $(function(){
     });
     
     $("#clear").click(function(){
+        clearinfo();
+    });
+    
+    function clearinfo(){
         $('#selectedelement').children().remove();
         $("#elementId").val("");
-    });
+    }
     function makediv(symbol){
       var pdiv =$('<div></div>');
       pdiv.attr('class','selement');
