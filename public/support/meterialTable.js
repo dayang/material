@@ -1,5 +1,5 @@
 $(function(){
-   window.onload = $.ajax({
+    $.ajax({
       type: "get",
       url: "query/queryTable",
       success: function(result){
@@ -9,7 +9,6 @@ $(function(){
           alert("请求失败");
       }
    });
-   
    function showtable(result){
        $("#meterialTable").dataTable({
              data:result,
