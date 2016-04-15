@@ -7,7 +7,13 @@ $(function(){
       },
       error:function(info){
           alert("请求失败");
-      }
+      },
+       beforeSend : function(){
+                $("#dataTables_processing").show();
+            },
+        complete : function(){
+            $("#dataTables_processing").hide();
+        } 
    });
    function showtable(result){
        $("#meterialTable").dataTable({
