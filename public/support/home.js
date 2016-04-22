@@ -1,4 +1,15 @@
 $(function(){
+    
+    $.ajax({
+      type: "get",
+      url: "query/initSeleter",
+      success: function(result){
+          initSeleter(result.data);
+      }
+   });
+    
+    
+    
     clearinfo();
     $(".element").click(function(e){
       var symbol = $(this).children(".symbol").text();
@@ -14,6 +25,7 @@ $(function(){
         $('#selectedelement').children().remove();
         $("#elementId").val("");
     }
+    
     function makediv(symbol){
       var pdiv =$('<div></div>');
       pdiv.attr('class','selement');

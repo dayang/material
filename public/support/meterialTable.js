@@ -21,7 +21,7 @@ $(function(){
              columns:[
                  {title:"Materials Id",data:"Materials_Id"},
                  {title:"Formula",data:"Formula"},
-                 {title:"",data:"Spacegroup"},
+                 {title:"Spacegroup",data:"Spacegroup"},
                  {title:"Formation Energy",data:"Formation_Energy"},
                  {title:"E Above Hull",data:"E_Above_Hull"},
                  {title:"Band Gap",data:"Band_Gap"},
@@ -49,15 +49,17 @@ $(function(){
                 },
                 "bDeferRender" : true, 
                 "bProcessing": true, 
+                "bInfo": true,
                 //下拉列表中的选项(每页显示的行数)
                 "aLengthMenu": [
                     [10, 20,50, 100, 1000, -1],
                     [10, 20,50, 100, 1000, "All"] // change per page values here
                 ],
+                
                 initComplete: function () {
-                    this.api().columns(2).every( function () {
+                    this.api().columns([0,1,2,3,4,5,6,7,8]).every( function () {
                         var column = this;
-                        var select = $('<select ><option value="">Spacegroup</option></select>')
+                        var select = $('<select ><option value="">ALL</option></select>')
                             .appendTo( $(column.header()))
                             .on( 'change', function () {
                                 var val = $.fn.dataTable.util.escapeRegex(

@@ -1,113 +1,95 @@
+
+html, body {
+	height: 100%;
+}
+
 body {
-        background-color: #000;
-        margin: 0;
-        font-family: Arial;
-        overflow: hidden;
-    }
+	background-color: #111;
+	margin: 0;
+	font-family: Helvetica, sans-serif;;
+	overflow: hidden;
+}
 
+a {
+	color: #ffffff;
+}
 
-    #info {
-        position: absolute;
-        width: 100%;
-        color: #ffffff;
-        padding: 5px;
-        font-family: Monospace;
-        font-size: 13px;
-        font-weight: bold;
-        text-align: center;
-        z-index: 1;
-    }
+#info {
+	position: absolute;
+	width: 100%;
+	color: #ffffff;
+	padding: 5px;
+	font-family: Monospace;
+	font-size: 13px;
+	font-weight: bold;
+	text-align: center;
+	z-index: 1;
+}
 
-    #menu {
-        position: absolute;
-        bottom: 20px;
-        width: 100%;
-        text-align: center;
-    }
+#menu {
+	position: absolute;
+	bottom: 20px;
+	width: 100%;
+	text-align: center;
+}
 
-    .element {
-        width: 140px;
-        height: 180px;
-        box-shadow: 0px 0px 20px rgba(0,255,255,0.5);
-        border: 1px solid rgba(127,255,255,0.25);
-        cursor: default;
-    }
+.element {
+	width: 120px;
+	height: 160px;
+	box-shadow: 0px 0px 12px rgba(0,255,255,0.5);
+	border: 1px solid rgba(127,255,255,0.25);
+	text-align: center;
+	cursor: default;
+}
 
-    .element:hover {
-        box-shadow: 0px 0px 20px rgba(0,255,255,0.75);
-        border: 1px solid rgba(127,255,255,0.75);
-        cursor: pointer;
-    }
-
-    .element .number {
-       position: absolute;
-       top: 20px;
-       right: 20px;
-       font-size: 20px;
-       color: rgba(127,255,255,0.75);
-   }
-
-   .element .symbol {
-       position: absolute;
-       top: 40px;
-       width: 100%;
-       font-size: 70px;
-       text-align: center;
-       color: rgba(255,255,255,0.75);
-       font-weight: bold;
-
-       -webkit-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-       -moz-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-       -o-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-       -ms-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-       filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
-   }
-
-   .element .details {
-       position: absolute;
-       top: 125px;
-       width: 100%;
-       font-size: 18px;
-       text-align: center;
-       color: rgba(127,255,255,0.75);
-   }
-
-   button {
-    color: rgba(0,0,0,0.75);
-    background: transparent;
-    border: 0px;
-    padding: 5px 10px;
+.element:hover {
+	box-shadow: 0px 0px 12px rgba(0,255,255,0.75);
+	border: 1px solid rgba(127,255,255,0.75);
     cursor: pointer;
 }
 
-.btnmenu{
-  outline: 1px solid rgba(127,255,255,0.75);
-}
+	.element .number {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		font-size: 12px;
+		color: rgba(127,255,255,0.75);
+	}
 
+	.element .symbol {
+		position: absolute;
+		top: 40px;
+		left: 0px;
+		right: 0px;
+		font-size: 60px;
+		font-weight: bold;
+		color: rgba(255,255,255,0.75);
+	}
+
+	.element .details {
+		position: absolute;
+		bottom: 15px;
+		left: 0px;
+		right: 0px;
+		font-size: 12px;
+		color: rgba(127,255,255,0.75);
+	}
+
+button {
+	color: rgba(127,255,255,0.75);
+	background: transparent;
+	outline: 1px solid rgba(127,255,255,0.75);
+	border: 0px;
+	padding: 5px 10px;
+	cursor: pointer;
+}
 button:hover {
-    background-color: #36b8da;
+	background-color: rgba(0,255,255,0.5);
 }
 button:active {
-    color: #000000;
-    background-color: rgba(0,255,255,0.75);
+	color: #000000;
+	background-color: rgba(0,255,255,0.75);
 }
-
-
-object,embed{
-            -webkit-animation-duration:.001s;
-            -webkit-animation-name:playerInserted;
-            -ms-animation-duration:.001s;
-            -ms-animation-name:playerInserted;
-            -o-animation-duration:.001s;
-            -o-animation-name:playerInserted;
-            animation-duration:.001s;
-            animation-name:playerInserted;
-        }
-@-webkit-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}
-@-ms-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}
-@-o-keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}
-@keyframes playerInserted{from{opacity:0.99;}to{opacity:1;}}
-
 
 /*Bootstrap*/
 
@@ -116,9 +98,7 @@ object,embed{
   z-index: 10;
   width: 250px;
   margin-bottom: 20px;
-  /*background-color: #fff;*/
   border: 1px solid transparent;
-  /*border-radius: 4px;*/
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
@@ -155,7 +135,7 @@ object,embed{
   font-size: 20px;
   line-height: 1.42857143;
   text-align: center;
-  border-radius: 4px;
+  /*border-radius: 4px;*/
   white-space: nowrap;
   vertical-align: middle;
   -ms-touch-action: manipulation;
