@@ -58,12 +58,7 @@ $(function(){
             }
             $('select[name='+seletorName+']').append(option);
         }
-        
-        data.forEach(function(element) {
-            var option = document.createElement('option');
-            option.innerText = element;
-            $('select[name = '+seletorName+']').append(option);
-        }, this);
+    
    }
     
     clearinfo();
