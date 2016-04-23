@@ -2,15 +2,19 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" href="./support/home.css">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <title>元素拾取</title>
+	<link rel="stylesheet" href="/support/bootstrap.css">
+	<link rel="stylesheet" href="/support/magicsuggest.css">
+	<link rel="stylesheet"  href="/support/home.css">
+    
     <script src="/support/jquery-2.2.3.js"></script>
     <script src="/support/three.min.js"></script>
     <script src="/support/tween.min.js"></script>
     <script src="/support/TrackballControls.js"></script>
     <script src="/support/CSS3DRenderer.js"></script>
     <script src="/support/home.js"></script>
+	<script src="/support/magicsuggest.js"></script>
 </head>
 <body>
 	<div class="panel panel-info">
@@ -32,33 +36,25 @@
 					<button class="btn btn-info" type="reset" id="clear">清空</button>
 				</div>
 				<p>&nbsp</p>
-				<div>
-					<table>
-						<tr>
-							<td>spacegroup_number</td>
-							<td>
-								<select name="spacegroup_number" id="spacegroup_number">
-									<option value="all">all</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>E_Above_Hull</td>
-							<td>
-								<select name="E_Above_Hull" id="E_Above_Hull">
-									<option value="all">all</option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<td>Band_Gap</td>
-							<td>
-								<select name=" Band_Gap" id=" Band_Gap">
-									<option value="all">all</option>
-								</select>
-							</td>
-						</tr>
-					</table>
+				<h5>Spacegroup_Number:</h5>
+				<!--<div name="Spacegroup_Number" id="Spacegroup_Number"></div>-->
+				<div id="Spacegroup_Number">
+					<select name="Spacegroup_Number">
+						<option value="all">all</option>
+					</select>
+				</div>
+				
+				<h5>E_Above_Hull</h5>
+				<div id="E_Above_Hull">
+					<select name="E_Above_Hull">
+						<option value="all">all</option>
+					</select>
+				</div>
+				<h5>Band_Gap</h5>
+				<div id="Band_Gap">
+					<select name="Band_Gap">
+						<option value="all">all</option>
+					</select>
 				</div>
 			</form>
 		</div>
@@ -390,7 +386,6 @@ function transform( targets, duration ) {
 		.start();
 
 }
-
 function onWindowResize() {
 
 	camera.aspect = window.innerWidth / window.innerHeight;
@@ -401,7 +396,6 @@ function onWindowResize() {
 	render();
 
 }
-
 function animate() {
 
 	requestAnimationFrame( animate );
@@ -417,7 +411,6 @@ function render() {
 	renderer.render( scene, camera );
 
 }
-
 </script>
 </body>
 </html>

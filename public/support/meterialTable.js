@@ -7,10 +7,10 @@ $(function(){
       },
       error:function(info){
           alert("请求失败");
-      },
-       beforeSend : function(){
-                $("#dataTables_processing").show();
-            },
+       },
+    //    beforeSend : function(){
+    //             $("#dataTables_processing").show();
+    //         },
         complete : function(){
             $("#dataTables_processing").hide();
         } 
@@ -22,6 +22,7 @@ $(function(){
                  {title:"Materials Id",data:"Materials_Id"},
                  {title:"Formula",data:"Formula"},
                  {title:"Spacegroup",data:"Spacegroup"},
+                 {title:"Spacegroup Number",data:"Spacegroup_Number"},
                  {title:"Formation Energy",data:"Formation_Energy"},
                  {title:"E Above Hull",data:"E_Above_Hull"},
                  {title:"Band Gap",data:"Band_Gap"},
@@ -33,7 +34,7 @@ $(function(){
              ],
              
                 "oLanguage": {
-                    "sProcessing": "正在加载中......",
+                    "sProcessing": "加载中...",
                     "sLengthMenu": "每页显示 _MENU_ 条记录",
                     "sZeroRecords": "对不起，查询不到相关数据！",
                     "sEmptyTable": "表中无数据存在！",

@@ -74,7 +74,7 @@ a {
 		font-size: 12px;
 		color: rgba(127,255,255,0.75);
 	}
-
+/*
 button {
 	color: rgba(127,255,255,0.75);
 	background: transparent;
@@ -89,7 +89,7 @@ button:hover {
 button:active {
 	color: #000000;
 	background-color: rgba(0,255,255,0.75);
-}
+}*/
 
 /*Bootstrap*/
 
@@ -102,7 +102,7 @@ button:active {
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
-.panel-body {
+.spanel-body {
   background-color: rgba(255,255,255,0.1);
   padding: 15px;
 }
@@ -149,6 +149,7 @@ button:active {
 .selement {
         width: 70px;
         height: 90px;
+		background-color: rgba(0, 0, 0, .7);
         box-shadow: 0px 0px 20px rgba(0,255,255,0.5);
         border: 1px solid rgba(127,255,255,0.25);
         display: inline-block;
@@ -164,7 +165,7 @@ button:active {
    width: 100%;
    font-size: 40px;
    text-align: center;
-   color: rgba(255,255,255,0.75);
+   color: rgba(255,255,255,0.8);
    font-weight: bold;
 
    -webkit-filter: drop-shadow(0px 0px 20px rgba(0,255,255,0.95));
