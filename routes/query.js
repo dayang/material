@@ -4,10 +4,11 @@ var mysql = require('mysql');
 var config = require('../myconfig');
 
 router.post('/',function(req, res, next){
+	console.log(req.body);
 	req.session.elements = req.body.elementArray;
-	req.session.sn = req.body.Spacegroup_Number;
-	req.session.eah = req.body.E_Above_Hull;
-	req.session.bg = req.body.Band_Gap;
+	req.session.sn = req.body['Spacegroup_Number[]'];
+	req.session.eah = req.body['E_Above_Hull[]'];
+	req.session.bg = req.body['Band_Gap[]'];
 	res.render('materialTable',{ 
 		caption : req.session.elements,
 		capSN: req.session.sn,

@@ -29,38 +29,37 @@ $(function(){
 //     }
 // });
    
-    $.ajax({
-      type: "post",
-      url: "query/initSeletor",
-      success: function(result){
-          initSeletor('Spacegroup_Number',result.Spacegroup_Number);
-          initSeletor('Band_Gap', result.Band_Gap);
-          initSeletor('E_Above_Hull',result.E_Above_Hull);
-      },
-      error: function(msg){
-          console.log(msg);
-      }
-   });
+//     $.ajax({
+//       type: "post",
+//       url: "query/initSeletor",
+//       success: function(result){
+//           initSeletor('Spacegroup_Number',result.Spacegroup_Number);
+//           initSeletor('Band_Gap', result.Band_Gap);
+//           initSeletor('E_Above_Hull',result.E_Above_Hull);
+//       },
+//       error: function(msg){
+//           console.log(msg);
+//       }
+//    });
     
-    function initSeletor(seletorName, data){
-        for(var i = 0 ; i < data.length ; i++){
-            var option = document.createElement('option');
-            switch(seletorName){
-                case 'Spacegroup_Number':
-                    option.innerText = data[i].Spacegroup_Number;
-                    break;
-                case 'Band_Gap':
-                    option.innerText = data[i].Band_Gap;
-                    break;
-                case 'E_Above_Hull':
-                    option.innerText = data[i].E_Above_Hull;
-                    break;
-            }
-            $('select[name='+seletorName+']').append(option);
-        }
-    
-   }
-    
+//     function initSeletor(seletorName, data){
+//         for(var i = 0 ; i < data.length ; i++){
+//             var option = document.createElement('option');
+//             switch(seletorName){
+//                 case 'Spacegroup_Number':
+//                     option.innerText = data[i].Spacegroup_Number;
+//                     break;
+//                 case 'Band_Gap':
+//                     option.innerText = data[i].Band_Gap;
+//                     break;
+//                 case 'E_Above_Hull':
+//                     option.innerText = data[i].E_Above_Hull;
+//                     break;
+//             }
+//             $('select[name='+seletorName+']').append(option);
+//         }
+//         //$('select[name='+seletorName+']').magicSuggest({});
+//    }
     clearinfo();
     $(".element").click(function(e){
       var symbol = $(this).children(".symbol").text();

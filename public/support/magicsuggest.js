@@ -198,7 +198,7 @@
              *    parameter which is the number of selected elements.
              */
             maxSelectionRenderer: function(v) {
-                return 'You cannot choose more than ' + v + ' item' + (v > 1 ? 's':'');
+                //return 'You cannot choose more than ' + v + ' item' + (v > 1 ? 's':'');
             },
 
             /**
