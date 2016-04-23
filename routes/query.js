@@ -4,11 +4,17 @@ var mysql = require('mysql');
 var config = require('../myconfig');
 
 router.post('/',function(req, res, next){
-	console.log(req.body);
 	req.session.elements = req.body.elementArray;
 	req.session.sn = req.body['Spacegroup_Number[]'];
 	req.session.eah = req.body['E_Above_Hull[]'];
 	req.session.bg = req.body['Band_Gap[]'];
+	console.log(req.session.sn);
+	if(!req.session.sn)
+		req.session.sn = "all";
+	if(!req.session.eah)
+		req.session.eah = "all";
+	if(!req.session.bg)
+		req.session.bg = "all";
 	res.render('materialTable',{ 
 		caption : req.session.elements,
 		capSN: req.session.sn,
@@ -129,9 +135,11 @@ router.get('/queryTable', function(req, res, next){
 		}
 		// sql = 'select Materials_Id,Formula,Spacegroup,\
 		// 			Formation_Energy,E_Above_Hull,Band_Gap,Nsites,Density,\
-		// 			Volume,zip_dir,kpoint_dir from materialsproject where(' + sqlele + ' and ' + sqlbg +  ' and ' + sqleah + ' and '+ sqlsn + ')';		
+		// 			Volume,zip_dir,kpoint_dir from materialsproject where(' + sqlele + ' and ' + sqlbg +  ' and ' + sqleah + ' and '+ sqlsn + ')';
+		if(sqlbg=="true"&&sqleah=="true"&&sqlsn=="true"&&sqlele=="true"){
+			sqlbg="false";sqleah="false";sqlsn="false";sqlele="false";
+		}		
 		sql = 'select * from materialsproject where(' + sqlele + ' and ' + sqlbg +  ' and ' + sqleah + ' and '+ sqlsn + ')';		
-
 		console.log(sql);
 		connection.query(sql,function(err,rows){
 			connection.end();
